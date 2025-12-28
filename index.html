@@ -2,89 +2,148 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Untuk Lisna</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Lisnaa</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: #fafafa;
-      color: #222;
-      line-height: 1.9;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(180deg, #ffe4ec, #fff);
+      overflow-x: hidden;
     }
+
+    /* Love dekorasi */
+    .love {
+      position: fixed;
+      color: rgba(255, 105, 180, 0.25);
+      font-size: 18px;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+
     .container {
-      max-width: 720px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: auto;
       padding: 40px 20px;
+      position: relative;
+      z-index: 2;
     }
+
     h1 {
-      font-size: 22px;
-      font-weight: normal;
-      margin-bottom: 35px;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 30px;
     }
+
+    iframe {
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+
     p {
-      margin-bottom: 22px;
-      font-size: 16px;
+      font-size: 17px;
+      line-height: 1.9;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+      margin-bottom: 24px;
     }
-    .music {
-      margin: 35px 0 45px;
+
+    p.show {
+      opacity: 1;
+      transform: translateY(0);
     }
-    footer {
+
+    .signature {
       margin-top: 40px;
-      font-size: 15px;
-      color: #555;
+      font-weight: 600;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Untuk Lisna</h1>
 
-    <div class="music">
-      <p><em>Putar lagu ini, lalu baca pelan-pelan.</em></p>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https://soundcloud.com/tulusmusic/jatuh-suka&color=%23cccccc">
-      </iframe>
-    </div>
+<!-- Love dekorasi -->
+<span class="love" style="left:10%">♡</span>
+<span class="love" style="left:30%; animation-delay:2s;">♥</span>
+<span class="love" style="left:50%; animation-delay:4s;">♡</span>
+<span class="love" style="left:70%; animation-delay:1s;">♥</span>
+<span class="love" style="left:90%; animation-delay:3s;">♡</span>
 
-    <p>Selamat tahun baru, Lis.</p>
+<div class="container">
+  <h1>Untuk Lisnaa</h1>
 
-    <p>Nggak kerasa, hampir enam bulan aku menyimpan rasa kagum ini ke kamu.</p>
+  <!-- GANTI LINK SPOTIFY DI SINI -->
+  <iframe style="border:none" 
+    src="https://open.spotify.com/embed/track/6PqWdGIYq5xdLaa4zCZfRp?si=JEcxzi0yQWSr7qMt8lUw4g
+    width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+  </iframe>
 
-    <p>Awalnya aku pikir bisa biasa saja, tapi makin lama perasaan ini bukan mengecil—malah membengkak, dan jujur itu melelahkan.</p>
+  <p>Selamat tahun baru, Lis.</p>
 
-    <p>Kamu gatau betapa bahagianya aku sepulang kita nonton ,aku juga lupa nge rate film nya dan jujur apapun selagi sama kamu itu rate nya 200/100</p>
+  <p>Nggak kerasa, hampir enam bulan aku menyimpan rasa kagum ini ke kamu.</p>
 
-    <p>Tapi pas pulang aku kira kita bakal chattan lama tadinya aku mau cerita soal film nya ,tapi gapapa aku ngehargain diem nya kamu kok</p>
+  <p>Awalnya aku pikir bisa biasa saja, tapi makin lama perasaan ini bukan mengecil-malah membengkak, dan jujur itu melelahkan.</p>
 
-    <p>Tapi untuk sekarang</p>
+  <p>Kamu gatau betapa bahagianya aku sepulang kita nonton, aku juga lupa nge rate film nya dan jujur apapun selagi sama kamu itu rate nya 200/100.</p>
 
-    <p>Aku akhirnya memilih jujur, bukan karena terburu-buru, tapi karena menyimpan perasaan di area abu-abu itu menyiksa.</p>
+  <p>Tapi pas pulang aku kira kita bakal chattan lama tadinya aku mau cerita soal film nya, tapi gapapa aku ngehargain diem nya kamu kok.</p>
 
-    <p>Aku sudah capek dengan hubungan yang sekadar berjalan tanpa arah.</p>
+  <p>Tapi untuk sekarang.</p>
 
-    <p>Dan mungkin karena itu juga aku memberanikan diri menulis ini.</p>
+  <p>Aku akhirnya memilih jujur, bukan karena terburu-buru, tapi karena menyimpan perasaan di area abu-abu itu menyiksa.</p>
 
-    <p>Aku ingin mengenal kamu dengan niat yang jelas dan serius.</p>
+  <p>Aku sudah capek dengan hubungan yang sekadar berjalan tanpa arah.</p>
 
-    <p>Bukan main-main, bukan juga memaksa.</p>
+  <p>Dan mungkin karena itu juga aku memberanikan diri menulis ini.</p>
 
-    <p>Aku tahu sekarang aku belum punya banyak hal untuk dibanggakan, tapi aku percaya satu hal:</p>
+  <p>Aku ingin mengenal kamu dengan niat yang jelas dan serius.</p>
 
-    <p>aku bisa dan mau mengusahakan yang terbaik.</p>
+  <p>Bukan main-main, bukan juga memaksa.</p>
 
-    <p>Aku sampaikan ini bukan untuk membebani kamu.</p>
+  <p>Aku tahu sekarang aku belum punya banyak hal untuk dibanggakan, tapi aku percaya satu hal:</p>
 
-    <p>Apa pun jawabanmu nanti, aku akan menghargainya.</p>
+  <p>aku bisa dan mau mengusahakan yang terbaik.</p>
 
-    <p>Setidaknya hari ini aku jujur pada perasaanku sendiri, dan itu membuatku lebih lega.</p>
+  <p>Aku sampaikan ini bukan untuk membebani kamu.</p>
 
-    <p>Selebihnya, aku serahkan ke kamu.</p>
+  <p>Apa pun jawabanmu nanti, aku akan menghargainya.</p>
 
-    <p>Maksih udah mau baca sampe sini</p>
+  <p>Setidaknya hari ini aku jujur pada perasaanku sendiri, dan itu membuatku lebih lega.</p>
 
-    <footer>Jiie</footer>
-  </div>
+  <p>Selebihnya, aku serahkan ke kamu.</p>
+
+  <p>Maksih udah mau baca sampe sini</p>
+
+  <p class="signature">Jiie</p>
+</div>
+
+<script>
+  const paragraphs = document.querySelectorAll('p');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  paragraphs.forEach(p => observer.observe(p));
+</script>
+
 </body>
 </html>
