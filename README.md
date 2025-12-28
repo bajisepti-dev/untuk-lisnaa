@@ -1,2 +1,0 @@
-# untuk-lisnaa
-untuk-lisna
