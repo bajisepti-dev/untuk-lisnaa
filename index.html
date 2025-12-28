@@ -14,11 +14,15 @@
     }
 
     body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(180deg, #ffe4ec, #fff);
-      overflow-x: hidden;
-    }
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 182, 193, 0.35), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(255, 192, 203, 0.35), transparent 60%),
+    linear-gradient(180deg, #ffe0eb, #fff);
+  overflow-x: hidden;
+}
+
 
     /* TAP TO OPEN */
     .overlay {
@@ -102,12 +106,15 @@
 
     /* BUNGA */
     .flower {
-      position: fixed;
-      font-size: 16px;
-      opacity: 0.3;
-      animation: float 7s linear infinite;
-      pointer-events: none;
-    }
+  position: fixed;
+  bottom: -40px;
+  z-index: 0; /* PENTING: di belakang teks */
+  opacity: 0.25;
+  animation: float 9s linear infinite;
+  pointer-events: none;
+  filter: blur(0.2px);
+}
+
 
     @keyframes float {
       from {
@@ -180,19 +187,35 @@
     }
 
     // bunga jatuh
-    setInterval(() => {
-      const flower = document.createElement("div");
-      flower.className = "flower";
-      flower.innerHTML = "🌸";
-      flower.style.left = Math.random() * 100 + "vw";
-      flower.style.fontSize = Math.random() * 12 + 14 + "px";
-      document.body.appendChild(flower);
+    <script>
+  function openPage() {
+    document.getElementById("overlay").classList.add("hide");
+    document.getElementById("content").style.display = "block";
+  }
 
-      setTimeout(() => {
-        flower.remove();
-      }, 7000);
-    }, 800);
-  </script>
+  const emojis = ["🌸", "💗", "💖", "💞", "❤️"];
+
+  setInterval(() => {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.fontSize = Math.random() * 20 + 26 + "px"; 
+    // ⬆️ ukuran lebih besar tapi masih aman
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => {
+      flower.remove();
+    }, 9000);
+  }, 900);
+</script>
+.container {
+  position: relative;
+  z-index: 2;
+}
+  
 
 </body>
 </html>
