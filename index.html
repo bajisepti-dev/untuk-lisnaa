@@ -113,6 +113,28 @@
       }
     }
   </style>
+  .photo-wrap {
+  margin-top: 40px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1s ease forwards;
+  animation-delay: calc(0.15s * var(--i));
+}
+
+.photo-wrap img {
+  width: 85%;
+  max-width: 320px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.photo-caption {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
 </head>
 
 <body>
@@ -153,8 +175,13 @@
       <p style="--i:16">Setidaknya hari ini aku jujur pada perasaanku sendiri, dan itu membuatku lebih lega.</p>
       <p style="--i:17">Selebihnya, aku serahkan ke kamu.</p>
       <p style="--i:18">Maksih udah mau baca sampe sini ya cantik😚.</p>
-      <p style="--i:19">Love you Cebol🫰🏻.</p>
-      <p style="--i:20"><strong>Rabu 31 Desember 2025-Kamis 01 Januari 2026</strong></p>
+      <p style="--i:20" style="text-align:center;">love you cebol🫰🏻</p>
+
+<div class="photo-wrap" style="--i:21">
+  <img src="IMG_20251228_203744_001.webp" alt="foto ngeledek" />
+  <p class="photo-caption"> 😛</p>
+</div>
+      
     </div>
   </div>
 
