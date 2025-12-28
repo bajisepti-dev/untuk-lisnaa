@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Untuk Lisnaa</title>
 
-  <!-- Google Font -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
@@ -15,135 +20,163 @@
       overflow-x: hidden;
     }
 
-    /* Love dekorasi */
-    .love {
+    /* TAP TO OPEN */
+    .overlay {
       position: fixed;
-      color: rgba(255, 105, 180, 0.25);
-      font-size: 18px;
-      animation: float 10s linear infinite;
+      inset: 0;
+      background: linear-gradient(180deg, #ffd6e5, #fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      transition: opacity 1s ease;
     }
 
-    @keyframes float {
-      from {
-        transform: translateY(100vh);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
+    .overlay button {
+      background: #ff7aa2;
+      border: none;
+      padding: 16px 26px;
+      font-size: 18px;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .overlay.hide {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .container {
-      max-width: 700px;
+      max-width: 720px;
       margin: auto;
-      padding: 40px 20px;
-      position: relative;
-      z-index: 2;
+      padding: 24px 18px 80px;
+      display: none;
     }
 
     h1 {
       text-align: center;
       font-weight: 600;
+      margin-bottom: 22px;
+      color: #333;
+    }
+
+    .music {
+      display: flex;
+      justify-content: center;
       margin-bottom: 30px;
     }
 
-    iframe {
-      border-radius: 12px;
-      margin-bottom: 40px;
-    }
-
-    p {
-      font-size: 17px;
-      line-height: 1.9;
+    .text p {
+      font-size: 20px;
+      line-height: 2.1;
+      color: #444;
+      margin-bottom: 18px;
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-      margin-bottom: 24px;
+      transform: translateY(10px);
+      animation: fadeIn 1s ease forwards;
     }
 
-    p.show {
-      opacity: 1;
-      transform: translateY(0);
+    .text p:nth-child(n) {
+      animation-delay: calc(0.15s * var(--i));
     }
 
-    .signature {
-      margin-top: 40px;
-      font-weight: 600;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* BUNGA */
+    .flower {
+      position: fixed;
+      font-size: 16px;
+      opacity: 0.3;
+      animation: float 7s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(-10vh) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .text p {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- Love dekorasi -->
-<span class="love" style="left:10%">♡</span>
-<span class="love" style="left:30%; animation-delay:2s;">♥</span>
-<span class="love" style="left:50%; animation-delay:4s;">♡</span>
-<span class="love" style="left:70%; animation-delay:1s;">♥</span>
-<span class="love" style="left:90%; animation-delay:3s;">♡</span>
+  <!-- TAP TO OPEN -->
+  <div class="overlay" id="overlay">
+    <button onclick="openPage()">Tap to open 🌸</button>
+  </div>
 
-<div class="container">
-  <h1>Untuk Lisnaa</h1>
+  <div class="container" id="content">
+    <h1>Untuk Lisnaa</h1>
 
-  <!-- GANTI LINK SPOTIFY DI SINI -->
-  <iframe style="border:none" 
-    src="https://open.spotify.com/embed/track/6PqWdGIYq5xdLaa4zCZfRp?si=JEcxzi0yQWSr7qMt8lUw4g
-    width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-  </iframe>
+    <div class="music">
+      <!-- SPOTIFY TRACK ID -->
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/6PqWdGIYq5xdLaa4zCZfRp"
+        width="100%" height="80" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
 
-  <p>Selamat tahun baru, Lis.</p>
+    <div class="text">
+      <p style="--i:1">Selamat tahun baru, Lis.</p>
+      <p style="--i:2">Nggak kerasa, hampir enam bulan aku menyimpan rasa kagum ini ke kamu.</p>
+      <p style="--i:3">Awalnya aku pikir bisa biasa saja, tapi makin lama perasaan ini bukan mengecil—malah membengkak, dan jujur itu melelahkan.</p>
+      <p style="--i:4">Kamu gatau betapa bahagianya aku sepulang kita nonton, aku juga lupa nge-rate filmnya dan jujur apa pun selagi sama kamu itu ratenya 200/100.</p>
+      <p style="--i:5">Tapi pas pulang aku kira kita bakal chat lama, tadinya aku mau cerita soal filmnya, tapi gapapa aku menghargai diemnya kamu kok.</p>
+      <p style="--i:6">Tapi untuk sekarang.</p>
+      <p style="--i:7">Aku akhirnya memilih jujur, bukan karena terburu-buru, tapi karena menyimpan perasaan di area abu-abu itu menyiksa.</p>
+      <p style="--i:8">Aku sudah capek dengan hubungan yang sekadar berjalan tanpa arah.</p>
+      <p style="--i:9">Dan mungkin karena itu juga aku memberanikan diri menulis ini.</p>
+      <p style="--i:10">Aku ingin mengenal kamu dengan niat yang jelas dan serius.</p>
+      <p style="--i:11">Bukan main-main, bukan juga memaksa.</p>
+      <p style="--i:12">Aku tahu sekarang aku belum punya banyak hal untuk dibanggakan, tapi aku percaya satu hal:</p>
+      <p style="--i:13">aku bisa dan mau mengusahakan yang terbaik.</p>
+      <p style="--i:14">Aku sampaikan ini bukan untuk membebani kamu.</p>
+      <p style="--i:15">Apa pun jawabanmu nanti, aku akan menghargainya.</p>
+      <p style="--i:16">Setidaknya hari ini aku jujur pada perasaanku sendiri, dan itu membuatku lebih lega.</p>
+      <p style="--i:17">Selebihnya, aku serahkan ke kamu.</p>
+      <p style="--i:18">Maksih udah mau baca sampe sini.</p>
+      <p style="--i:19"><strong>Jiie</strong></p>
+    </div>
+  </div>
 
-  <p>Nggak kerasa, hampir enam bulan aku menyimpan rasa kagum ini ke kamu.</p>
+  <script>
+    function openPage() {
+      document.getElementById("overlay").classList.add("hide");
+      document.getElementById("content").style.display = "block";
+    }
 
-  <p>Awalnya aku pikir bisa biasa saja, tapi makin lama perasaan ini bukan mengecil-malah membengkak, dan jujur itu melelahkan.</p>
+    // bunga jatuh
+    setInterval(() => {
+      const flower = document.createElement("div");
+      flower.className = "flower";
+      flower.innerHTML = "🌸";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.fontSize = Math.random() * 12 + 14 + "px";
+      document.body.appendChild(flower);
 
-  <p>Kamu gatau betapa bahagianya aku sepulang kita nonton, aku juga lupa nge rate film nya dan jujur apapun selagi sama kamu itu rate nya 200/100.</p>
-
-  <p>Tapi pas pulang aku kira kita bakal chattan lama tadinya aku mau cerita soal film nya, tapi gapapa aku ngehargain diem nya kamu kok.</p>
-
-  <p>Tapi untuk sekarang.</p>
-
-  <p>Aku akhirnya memilih jujur, bukan karena terburu-buru, tapi karena menyimpan perasaan di area abu-abu itu menyiksa.</p>
-
-  <p>Aku sudah capek dengan hubungan yang sekadar berjalan tanpa arah.</p>
-
-  <p>Dan mungkin karena itu juga aku memberanikan diri menulis ini.</p>
-
-  <p>Aku ingin mengenal kamu dengan niat yang jelas dan serius.</p>
-
-  <p>Bukan main-main, bukan juga memaksa.</p>
-
-  <p>Aku tahu sekarang aku belum punya banyak hal untuk dibanggakan, tapi aku percaya satu hal:</p>
-
-  <p>aku bisa dan mau mengusahakan yang terbaik.</p>
-
-  <p>Aku sampaikan ini bukan untuk membebani kamu.</p>
-
-  <p>Apa pun jawabanmu nanti, aku akan menghargainya.</p>
-
-  <p>Setidaknya hari ini aku jujur pada perasaanku sendiri, dan itu membuatku lebih lega.</p>
-
-  <p>Selebihnya, aku serahkan ke kamu.</p>
-
-  <p>Maksih udah mau baca sampe sini</p>
-
-  <p class="signature">Jiie</p>
-</div>
-
-<script>
-  const paragraphs = document.querySelectorAll('p');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  paragraphs.forEach(p => observer.observe(p));
-</script>
+      setTimeout(() => {
+        flower.remove();
+      }, 7000);
+    }, 800);
+  </script>
 
 </body>
 </html>
