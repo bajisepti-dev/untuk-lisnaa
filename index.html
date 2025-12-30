@@ -217,6 +217,24 @@ setInterval(() => {
   setTimeout(()=>h.remove(),9000);
 },900);
 </script>
+<script>
+function kirimJawaban() {
+  const isi = document.getElementById("jawabanLisna").value.trim();
+
+  if (!isi) {
+    alert("jawabannya belum diisi ya liss 🤍");
+    return;
+  }
+
+  const nomor = "6287817756741";
+  const pembuka = "ajii... jawaban abi";
+  const pesan = pembuka + "\n\n" + isi;
+
+  const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+  window.open(url, "_blank");
+}
+</script>
+
 
 </body>
 </html>
