@@ -102,7 +102,8 @@ h1 {
 <body>
 
 <div class="overlay" id="overlay">
-  <button id="openBtn" onclick="openPage()">Tap to open</button>
+  <button onclick="openPage()">Tap to open 💗</button>
+
 
 
 </div>
@@ -243,24 +244,28 @@ function kirimJawaban() {
   window.open(url, "_blank");
 }
 </script>
-  <script>
+  
     <audio id="bgMusic" preload="auto">
   <source src="SoundLisna.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 function openPage() {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("content").style.display = "block";
-
+  const overlay = document.getElementById("overlay");
+  const content = document.getElementById("content");
   const music = document.getElementById("bgMusic");
-  music.currentTime = 0;
-  music.volume = 0.8;
-  music.play();
-}
 
-// tombol tap
-document.getElementById("openBtn").addEventListener("click", openPage);
+  overlay.style.display = "none";
+  content.style.display = "block";
+
+  if (music) {
+    music.currentTime = 0;
+    music.volume = 0.8;
+    music.play().catch(() => {
+      console.log("autoplay diblokir browser");
+    });
+  }
+}
 
 // LOVE JATUH
 const hearts = ["💗","💖","💞","❤️","🌸"];
@@ -268,12 +273,14 @@ setInterval(() => {
   const h = document.createElement("div");
   h.className = "flower";
   h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
-  h.style.left = Math.random()*100 + "vw";
-  h.style.fontSize = Math.random()*20 + 26 + "px";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = Math.random() * 22 + 18 + "px";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),9000);
-},900);
+  setTimeout(() => h.remove(), 7000);
+}, 900);
 </script>
+
+
 
 </body>
 
