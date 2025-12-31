@@ -102,7 +102,8 @@ h1 {
 <body>
 
 <div class="overlay" id="overlay">
-  <button id="openBtn">Tap to open 💗</button>
+  <button onclick="openPage()">Tap to open 💗</button>
+
 </div>
 
 <div class="container" id="content">
@@ -118,8 +119,9 @@ h1 {
   </div>
 
   <audio id="bgMusic" preload="auto">
-    <source src="SoundLisna.mp3" type="audio/mpeg">
-  </audio>
+  <source src="../SoundLisna.mp3" type="audio/mpeg">
+</audio>
+
   </div>
   
   
@@ -210,11 +212,6 @@ h1 {
     
 </div>
 
-<script>
-document.getElementById("openBtn").addEventListener("click", () => {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("content").style.display = "block";
-});
 
 // LOVE JATUH
 const hearts = ["💗","💖","💞","❤️","🌸"];
@@ -246,33 +243,31 @@ function kirimJawaban() {
 }
 </script>
   <script>
-  function openPage() {
-    document.getElementById("overlay").classList.add("hide");
-    document.getElementById("content").style.display = "block";
+function openPage() {
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("content").style.display = "block";
 
-    const music = document.getElementById("bgMusic");
-    if (music) {
-      music.volume = 0.8;
-      music.play();
-    }
+  const music = document.getElementById("bgMusic");
+  if (music) {
+    music.volume = 0.8;
+    music.play().catch(err => {
+      console.log("Autoplay dicegah browser", err);
+    });
   }
+}
 
-  // bunga jatuh
-  setInterval(() => {
-    const flower = document.createElement("div");
-    flower.className = "flower";
-    flower.innerHTML = "💗";
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.fontSize = Math.random() * 22 + 18 + "px";
-    document.body.appendChild(flower);
-
-    setTimeout(() => {
-      flower.remove();
-    }, 7000);
-  }, 900);
+// LOVE JATUH
+const hearts = ["💗","💖","💞","❤️","🌸"];
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "flower";
+  h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left = Math.random()*100 + "vw";
+  h.style.fontSize = Math.random()*20 + 26 + "px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),9000);
+},900);
 </script>
-
-
 
 </body>
 </html>
