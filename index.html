@@ -53,10 +53,6 @@ h1 {
   margin-bottom: 24px;
 }
 
-.music {
-  margin-bottom: 30px;
-}
-
 .text p {
   font-size: 20px;
   line-height: 2;
@@ -73,16 +69,7 @@ h1 {
   to { opacity: 1; }
 }
 
-/* FOTO */
-.foto-cebol {
-  display: block;
-  max-width: 85%;
-  margin: 24px auto;
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(255,105,180,.35);
-}
-
-/* LOVE BACKGROUND */
+/* LOVE JATUH */
 .flower {
   position: fixed;
   bottom: -40px;
@@ -96,41 +83,50 @@ h1 {
   from { transform: translateY(100vh) rotate(0); }
   to { transform: translateY(-10vh) rotate(360deg); }
 }
+
+/* JAWABAN */
+textarea {
+  width:100%;
+  max-width:500px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid #f3b6c8;
+  font-family:'Quicksand', sans-serif;
+  font-size:16px;
+  resize:none;
+  outline:none;
+}
+
+button.kirim {
+  background:#ff7aa2;
+  border:none;
+  padding:14px 28px;
+  border-radius:30px;
+  font-size:16px;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
 </style>
 </head>
 
 <body>
 
+<!-- TAP TO OPEN -->
 <div class="overlay" id="overlay">
   <button onclick="openPage()">Tap to open 💗</button>
-
-
-
 </div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" preload="auto">
+  <source src="SoundLisna.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container" id="content">
   <h1>Untuk Lisnaa</h1>
 
-  <div class="music">
-  <div class="song-card">
-    <div class="song-cover">🎵</div>
-    <div class="song-info">
-      <div class="song-title">Lagu ini aku puter buat kamu</div>
-      <div class="song-artist">— dari aku, yang lagi berani jujur</div>
-    </div>
-  </div>
-
-  <audio id="bgMusic" preload="auto">
-  <source src="SoundLisna.mp3" type="audio/mpeg">
-</audio>
-
-
-  </div>
-  
-  
-    </iframe>
-    
   <div class="text">
+    <!-- GANTI TEKS DI SINI -->
   <p style="--i:1">Selamat tahun baru, Lis.</p>
 
   <p style="--i:2">Nggak kerasa, hampir enam bulan aku menyimpan rasa kagum ini ke kamu.</p>
@@ -170,66 +166,37 @@ h1 {
 
   <p style="--i:19">Maksih udah mau baca sampe sini</p>
 
-  <p style="--i:20" style="text-align:center;">love you cebol🫰🏻</p>
-  <!-- === BAGIAN JAWABAN LISNA === -->
-<div class="reply-box" style="margin-top:60px; text-align:center;">
-  <p style="font-size:16px; opacity:0.8; margin-bottom:14px;">
-    yakin mau dijawab sekarang, liss?  
-    <br>kalau belum siap, gapapa ditutup dulu 🤍
-  </p>
+    <p style="--i:6; text-align:center;">love you cebol 🫰🏻</p>
 
-  <textarea id="jawabanLisna" rows="5"
-    placeholder="tulis jawaban kamu di sini..."
-    style="
-      width:100%;
-      max-width:500px;
-      padding:14px;
-      border-radius:14px;
-      border:1px solid #f3b6c8;
-      font-family:'Quicksand', sans-serif;
-      font-size:16px;
-      resize:none;
-      outline:none;
-    ">
-  </textarea>
+    <!-- JAWABAN WA -->
+    <div style="margin-top:60px; text-align:center;">
+      <p style="font-size:16px; opacity:0.8;">
+        yakin mau dijawab sekarang, liss?<br>
+        kalau belum siap, gapapa ditutup dulu 🤍
+      </p>
 
-  <br><br>
+      <textarea id="jawabanLisna" rows="5"
+        placeholder="tulis jawaban kamu di sini..."></textarea>
 
-  <button onclick="kirimJawaban()"
-    style="
-      background:#ff7aa2;
-      border:none;
-      padding:14px 28px;
-      border-radius:30px;
-      font-size:16px;
-      color:white;
-      cursor:pointer;
-      box-shadow:0 8px 18px rgba(0,0,0,0.15);
-    ">
-    Kirim jawaban ke Jiie 💌
-  </button>
-</div>
+      <br><br>
 
-
+      <button class="kirim" onclick="kirimJawaban()">
+        Kirim jawaban ke Jiie 💌
+      </button>
+    </div>
   </div>
-    
 </div>
-  
-  <script>
+
+<script>
 function openPage() {
-  const overlay = document.getElementById("overlay");
-  const content = document.getElementById("content");
+  document.getElementById("overlay").style.display = "none";
+  document.getElementById("content").style.display = "block";
+
   const music = document.getElementById("bgMusic");
-
-  overlay.style.display = "none";
-  content.style.display = "block";
-
   if (music) {
     music.currentTime = 0;
     music.volume = 0.8;
-    music.play().catch(() => {
-      console.log("autoplay diblokir browser");
-    });
+    music.play().catch(()=>{});
   }
 }
 
@@ -238,19 +205,30 @@ const hearts = ["💗","💖","💞","❤️","🌸"];
 setInterval(() => {
   const h = document.createElement("div");
   h.className = "flower";
-  h.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-  h.style.left = Math.random() * 100 + "vw";
-  h.style.fontSize = Math.random() * 22 + 18 + "px";
+  h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left = Math.random()*100 + "vw";
+  h.style.fontSize = Math.random()*22 + 18 + "px";
   document.body.appendChild(h);
-  setTimeout(() => h.remove(), 7000);
-}, 900);
+  setTimeout(()=>h.remove(),7000);
+},900);
+
+// KIRIM KE WA
+function kirimJawaban() {
+  const isi = document.getElementById("jawabanLisna").value.trim();
+  if (!isi) {
+    alert("jawabannya belum diisi ya liss 🤍");
+    return;
+  }
+
+  const nomor = "6287817756741";
+  const pembuka = "ajii... jawaban abi";
+  const pesan = pembuka + "\n\n" + isi;
+
+  const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+  window.open(url, "_blank");
+}
 </script>
 
-
-
-
-
-
 </body>
-
 </html>
+
