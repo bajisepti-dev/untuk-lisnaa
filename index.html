@@ -244,20 +244,24 @@ function kirimJawaban() {
 }
 </script>
   <script>
+    <audio id="bgMusic" preload="auto">
+  <source src="SoundLisna.mp3" type="audio/mpeg">
+</audio>
+
+<script>
 function openPage() {
   document.getElementById("overlay").style.display = "none";
   document.getElementById("content").style.display = "block";
 
   const music = document.getElementById("bgMusic");
-  if (music) {
-    music.volume = 0.8;
-    music.play().catch(err => {
-      console.log("Autoplay dicegah browser", err);
-    });
-  }
-  </script>
+  music.currentTime = 0;
+  music.volume = 0.8;
+  music.play();
 }
-  </script>
+
+// tombol tap
+document.getElementById("openBtn").addEventListener("click", openPage);
+
 // LOVE JATUH
 const hearts = ["💗","💖","💞","❤️","🌸"];
 setInterval(() => {
@@ -272,8 +276,5 @@ setInterval(() => {
 </script>
 
 </body>
-  <audio id="bgMusic" preload="auto">
-  <source src="SoundLisna.mp3" type="audio/mpeg">
-</audio>
 
 </html>
