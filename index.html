@@ -121,8 +121,9 @@ h1 {
   </div>
 
   <audio id="bgMusic" preload="auto">
-  <source src="../SoundLisna.mp3" type="audio/mpeg">
+  <source src="SoundLisna.mp3" type="audio/mpeg">
 </audio>
+
 
   </div>
   
@@ -213,43 +214,8 @@ h1 {
   </div>
     
 </div>
-
-
-// LOVE JATUH
-const hearts = ["💗","💖","💞","❤️","🌸"];
-setInterval(() => {
-  const h = document.createElement("div");
-  h.className = "flower";
-  h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
-  h.style.left = Math.random()*100 + "vw";
-  h.style.fontSize = Math.random()*20 + 26 + "px";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),9000);
-},900);
-</script>
-<script>
-function kirimJawaban() {
-  const isi = document.getElementById("jawabanLisna").value.trim();
-
-  if (!isi) {
-    alert("jawabannya belum diisi ya liss 🤍");
-    return;
-  }
-
-  const nomor = "6287817756741";
-  const pembuka = "ajii... jawaban abi";
-  const pesan = pembuka + "\n\n" + isi;
-
-  const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
-  window.open(url, "_blank");
-}
-</script>
   
-    <audio id="bgMusic" preload="auto">
-  <source src="SoundLisna.mp3" type="audio/mpeg">
-</audio>
-
-<script>
+  <script>
 function openPage() {
   const overlay = document.getElementById("overlay");
   const content = document.getElementById("content");
@@ -272,13 +238,16 @@ const hearts = ["💗","💖","💞","❤️","🌸"];
 setInterval(() => {
   const h = document.createElement("div");
   h.className = "flower";
-  h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+  h.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
   h.style.left = Math.random() * 100 + "vw";
   h.style.fontSize = Math.random() * 22 + 18 + "px";
   document.body.appendChild(h);
   setTimeout(() => h.remove(), 7000);
 }, 900);
 </script>
+
+
+
 
 
 
