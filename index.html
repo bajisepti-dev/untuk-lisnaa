@@ -8,96 +8,78 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(180deg, #ffd6e7, #fff);
-  overflow-x: hidden;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Quicksand',sans-serif;
+  background:linear-gradient(180deg,#ffd6e7,#fff);
+  overflow-x:hidden;
 }
 
-/* TAP TO OPEN */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(180deg, #ffc1d9, #fff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+.overlay{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,#ffc1d9,#fff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
 }
 
-.overlay button {
-  background: #ff6fa5;
-  border: none;
-  padding: 18px 30px;
-  font-size: 18px;
-  border-radius: 30px;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.overlay button{
+  background:#ff6fa5;
+  border:none;
+  padding:18px 30px;
+  font-size:18px;
+  border-radius:30px;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
 }
 
-.container {
-  max-width: 720px;
-  margin: auto;
-  padding: 24px 18px 80px;
-  display: none;
-  position: relative;
-  z-index: 2;
+.container{
+  max-width:720px;
+  margin:auto;
+  padding:24px 18px 80px;
+  display:none;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 24px;
+h1{text-align:center}
+
+.text p{
+  font-size:20px;
+  line-height:2;
+  margin-bottom:18px;
+  opacity:0;
+  animation:fade 1s forwards;
+}
+.text p:nth-child(n){
+  animation-delay:calc(.15s * var(--i));
+}
+@keyframes fade{to{opacity:1}}
+
+.flower{
+  position:fixed;
+  bottom:-40px;
+  opacity:.25;
+  animation:float 9s linear infinite;
+  pointer-events:none;
+}
+@keyframes float{
+  from{transform:translateY(100vh) rotate(0)}
+  to{transform:translateY(-10vh) rotate(360deg)}
 }
 
-.text p {
-  font-size: 20px;
-  line-height: 2;
-  margin-bottom: 18px;
-  opacity: 0;
-  animation: fade 1s forwards;
-}
-
-.text p:nth-child(n) {
-  animation-delay: calc(0.15s * var(--i));
-}
-
-@keyframes fade {
-  to { opacity: 1; }
-}
-
-/* LOVE JATUH */
-.flower {
-  position: fixed;
-  bottom: -40px;
-  z-index: 0;
-  opacity: 0.25;
-  animation: float 9s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes float {
-  from { transform: translateY(100vh) rotate(0); }
-  to { transform: translateY(-10vh) rotate(360deg); }
-}
-
-/* JAWABAN */
-textarea {
+textarea{
   width:100%;
   max-width:500px;
   padding:14px;
   border-radius:14px;
   border:1px solid #f3b6c8;
-  font-family:'Quicksand', sans-serif;
   font-size:16px;
-  resize:none;
-  outline:none;
 }
 
-button.kirim {
+button.kirim{
   background:#ff7aa2;
   border:none;
   padding:14px 28px;
@@ -105,28 +87,31 @@ button.kirim {
   font-size:16px;
   color:white;
   cursor:pointer;
-  box-shadow:0 8px 18px rgba(0,0,0,0.15);
 }
 </style>
 </head>
 
 <body>
 
-<!-- TAP TO OPEN -->
 <div class="overlay" id="overlay">
   <button onclick="openPage()">Tap to open 💗</button>
 </div>
 
-<!-- AUDIO -->
-<audio id="bgMusic" preload="auto">
-  <source src="SoundLisna.mp3" type="audio/mpeg">
-</audio>
-
 <div class="container" id="content">
   <h1>Untuk Lisnaa</h1>
 
+  <!-- SPOTIFY -->
+  <div id="spotifyBox" style="display:none;margin:20px 0;">
+    <iframe
+      style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/6PqWdGIYq5xdLaa4zCZfRp?si=JEcxzi0yQWSr7qMt8lUw4g?utm_source=generator"
+      width="100%" height="80"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+  </div>
+
   <div class="text">
-    <!-- GANTI TEKS DI SINI -->
   <p style="--i:1">Selamat tahun baru, Lis.</p>
 
   <p style="--i:2">Nggak kerasa, hampir enam bulan aku menyimpan rasa kagum ini ke kamu.</p>
@@ -166,20 +151,12 @@ button.kirim {
 
   <p style="--i:19">Maksih udah mau baca sampe sini</p>
 
-    <p style="--i:6; text-align:center;">love you cebol 🫰🏻</p>
+    <p style="--i:6;text-align:center">love you cebol 🫰🏻</p>
 
-    <!-- JAWABAN WA -->
-    <div style="margin-top:60px; text-align:center;">
-      <p style="font-size:16px; opacity:0.8;">
-        yakin mau dijawab sekarang, liss?<br>
-        kalau belum siap, gapapa ditutup dulu 🤍
-      </p>
-
+    <div style="margin-top:60px;text-align:center">
+      <p>yakin mau dijawab sekarang?</p>
       <textarea id="jawabanLisna" rows="5"
-        placeholder="tulis jawaban kamu di sini..."></textarea>
-
-      <br><br>
-
+        placeholder="tulis jawaban kamu..."></textarea><br><br>
       <button class="kirim" onclick="kirimJawaban()">
         Kirim jawaban ke Jiie 💌
       </button>
@@ -188,47 +165,34 @@ button.kirim {
 </div>
 
 <script>
-function openPage() {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("content").style.display = "block";
-
-  const music = document.getElementById("bgMusic");
-  if (music) {
-    music.currentTime = 0;
-    music.volume = 0.8;
-    music.play().catch(()=>{});
-  }
+function openPage(){
+  document.getElementById("overlay").style.display="none";
+  document.getElementById("content").style.display="block";
+  document.getElementById("spotifyBox").style.display="block";
 }
 
-// LOVE JATUH
-const hearts = ["💗","💖","💞","❤️","🌸"];
-setInterval(() => {
-  const h = document.createElement("div");
-  h.className = "flower";
-  h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
-  h.style.left = Math.random()*100 + "vw";
-  h.style.fontSize = Math.random()*22 + 18 + "px";
+const hearts=["💗","💖","💞","❤️","🌸"];
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="flower";
+  h.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=Math.random()*22+18+"px";
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),7000);
 },900);
 
-// KIRIM KE WA
-function kirimJawaban() {
-  const isi = document.getElementById("jawabanLisna").value.trim();
-  if (!isi) {
-    alert("jawabannya belum diisi ya liss 🤍");
-    return;
-  }
-
-  const nomor = "6287817756741";
-  const pembuka = "ajii... ";
-  const pesan = pembuka + "\n\n" + isi;
-
-  const url = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
-  window.open(url, "_blank");
+function kirimJawaban(){
+  const isi=document.getElementById("jawabanLisna").value.trim();
+  if(!isi){alert("jawabannya belum diisi");return;}
+  const nomor="6287817756741";
+  const pesan="ajii... jawaban abi\n\n"+isi;
+  window.open(
+    "https://wa.me/"+nomor+"?text="+encodeURIComponent(pesan),
+    "_blank"
+  );
 }
 </script>
 
 </body>
 </html>
-
