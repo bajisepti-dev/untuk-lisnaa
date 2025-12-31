@@ -102,7 +102,8 @@ h1 {
 <body>
 
 <div class="overlay" id="overlay">
-  <button onclick="openPage()">Tap to open 💗</button>
+  <button id="openBtn" onclick="openPage()">Tap to open</button>
+
 
 </div>
 
@@ -254,8 +255,9 @@ function openPage() {
       console.log("Autoplay dicegah browser", err);
     });
   }
+  </script>
 }
-
+  </script>
 // LOVE JATUH
 const hearts = ["💗","💖","💞","❤️","🌸"];
 setInterval(() => {
@@ -270,4 +272,8 @@ setInterval(() => {
 </script>
 
 </body>
+  <audio id="bgMusic" preload="auto">
+  <source src="SoundLisna.mp3" type="audio/mpeg">
+</audio>
+
 </html>
